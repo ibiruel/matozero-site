@@ -29,3 +29,10 @@ O Cloudflare publicará automaticamente após o commit.
 - removidos os adesivos visuais aplicados sobre a máquina
 - galeria simplificada para apenas 3 imagens
 - removido o texto/caption abaixo da imagem da máquina
+
+
+## Nova atualização v5
+- seção do equipamento reorganizada em layout mais premium
+- slider/carrossel com 3 imagens do equipamento
+- botões anterior/próxima, indicadores e miniaturas
+- autoplay leve e responsivo para celular e desktop

@@ -92,24 +92,80 @@
       </div>
     </section>
 
-    <section id="galeria" class="section">
+    <section id="galeria" class="section equipment-section">
       <div class="container">
         <div class="section-title">
           <p class="eyebrow">Nosso equipamento</p>
-          <h2>Máquina robusta para roça pesada, mato alto e terrenos difíceis.</h2>
-          <p>A operação remota reduz a exposição do operador ao risco e permite trabalhar com maior produtividade em diversos tipos de terreno.</p>
+          <h2>Uma operação mais premium, preparada para roça pesada e terrenos desafiadores.</h2>
+          <p>A MatoZero Tech trabalha com equipamento robusto, operação remota e foco em produtividade, segurança e desempenho em diferentes tipos de terreno.</p>
         </div>
 
-        <div class="gallery-grid gallery-grid-3">
-          <figure>
-            <img src="imagens/maquina-lateral.png" alt="Vista lateral da roçadeira mecanizada utilizada pela MatoZero Tech" />
-          </figure>
-          <figure>
-            <img src="imagens/maquina-angular.png" alt="Vista angular da máquina de roçada mecanizada em campo" />
-          </figure>
-          <figure>
-            <img src="imagens/detalhe-esteira.png" alt="Detalhe da esteira e estrutura da máquina de roçada mecanizada" />
-          </figure>
+        <div class="equipment-layout">
+          <div class="equipment-copy premium-panel">
+            <span class="premium-badge">MatoZero Tech • Equipamento profissional</span>
+            <h3>Roçadeira remota para mato alto, roça pesada e inclinações de até 70°.</h3>
+            <p>
+              Nossa máquina foi escolhida para entregar força, estabilidade e rendimento em terrenos amplos, irregulares e de difícil acesso. O resultado é uma operação mais rápida, eficiente e segura do que o trabalho manual em muitos cenários.
+            </p>
+
+            <div class="equipment-stats">
+              <div class="equipment-stat">
+                <strong>70°</strong>
+                <span>Inclinação máxima de trabalho</span>
+              </div>
+              <div class="equipment-stat">
+                <strong>4.000 m²/h</strong>
+                <span>Produtividade operacional informada</span>
+              </div>
+              <div class="equipment-stat">
+                <strong>9 roçadeiras</strong>
+                <span>Equivalência de trabalho</span>
+              </div>
+            </div>
+
+            <ul class="equipment-points">
+              <li>Operação remota para reduzir a exposição do operador ao risco.</li>
+              <li>Estrutura preparada para terrenos difíceis, mato alto e áreas inclinadas.</li>
+              <li>Ideal para terrenos, chácaras, condomínios, sítios, fazendas e loteamentos.</li>
+            </ul>
+          </div>
+
+          <div class="equipment-slider premium-panel">
+            <div class="slider-shell" data-slider>
+              <button class="slider-btn slider-prev" type="button" aria-label="Imagem anterior">‹</button>
+              <div class="slider-viewport">
+                <div class="slider-track">
+                  <figure class="slide is-active">
+                    <img src="imagens/maquina-lateral.png" alt="Vista lateral da roçadeira mecanizada utilizada pela MatoZero Tech" />
+                  </figure>
+                  <figure class="slide">
+                    <img src="imagens/maquina-angular.png" alt="Vista angular da máquina de roçada mecanizada em campo" />
+                  </figure>
+                  <figure class="slide">
+                    <img src="imagens/detalhe-esteira.png" alt="Detalhe da esteira e estrutura da máquina de roçada mecanizada" />
+                  </figure>
+                </div>
+              </div>
+              <button class="slider-btn slider-next" type="button" aria-label="Próxima imagem">›</button>
+            </div>
+
+            <div class="slider-caption">
+              <h3>Galeria do equipamento</h3>
+              <p>Visualize detalhes da máquina, estrutura, esteiras e configuração usada pela MatoZero Tech.</p>
+            </div>
+
+            <div class="slider-dots" aria-label="Indicadores do slider">
+              <button type="button" class="slider-dot is-active" aria-label="Ir para imagem 1"></button>
+              <button type="button" class="slider-dot" aria-label="Ir para imagem 2"></button>
+              <button type="button" class="slider-dot" aria-label="Ir para imagem 3"></button>
+            </div>
+
+            <div class="slider-thumbs" aria-label="Miniaturas do equipamento">
+              <button type="button" class="thumb is-active"><img src="imagens/maquina-lateral.png" alt="Miniatura da vista lateral da máquina" /></button>
+              <button type="button" class="thumb"><img src="imagens/maquina-angular.png" alt="Miniatura da vista angular da máquina" /></button>
+              <button type="button" class="thumb"><img src="imagens/detalhe-esteira.png" alt="Miniatura do detalhe da esteira" /></button>
+            </div>
+          </div>
         </div>
       </div>
     </section>
@@ -434,5 +490,55 @@
       </div>
     </div>
   </footer>
+
+  <script>
+    (function () {
+      const slider = document.querySelector('[data-slider]');
+      if (!slider) return;
+
+      const slides = Array.from(slider.querySelectorAll('.slide'));
+      const prevBtn = slider.querySelector('.slider-prev');
+      const nextBtn = slider.querySelector('.slider-next');
+      const dots = Array.from(document.querySelectorAll('.slider-dot'));
+      const thumbs = Array.from(document.querySelectorAll('.thumb'));
+      let current = 0;
+      let interval;
+
+      function render(index) {
+        slides.forEach((slide, i) => slide.classList.toggle('is-active', i === index));
+        dots.forEach((dot, i) => dot.classList.toggle('is-active', i === index));
+        thumbs.forEach((thumb, i) => thumb.classList.toggle('is-active', i === index));
+        current = index;
+      }
+
+      function goTo(index) {
+        const nextIndex = (index + slides.length) % slides.length;
+        render(nextIndex);
+      }
+
+      function startAuto() {
+        stopAuto();
+        interval = setInterval(() => goTo(current + 1), 4500);
+      }
+
+      function stopAuto() {
+        if (interval) clearInterval(interval);
+      }
+
+      prevBtn.addEventListener('click', () => { goTo(current - 1); startAuto(); });
+      nextBtn.addEventListener('click', () => { goTo(current + 1); startAuto(); });
+      dots.forEach((dot, i) => dot.addEventListener('click', () => { goTo(i); startAuto(); }));
+      thumbs.forEach((thumb, i) => thumb.addEventListener('click', () => { goTo(i); startAuto(); }));
+
+      slider.addEventListener('mouseenter', stopAuto);
+      slider.addEventListener('mouseleave', startAuto);
+      slider.addEventListener('touchstart', stopAuto, {passive: true});
+      slider.addEventListener('touchend', startAuto, {passive: true});
+
+      render(0);
+      startAuto();
+    })();
+  </script>
+
 </body>
 </html>
