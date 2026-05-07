@@ -36,3 +36,9 @@ O Cloudflare publicará automaticamente após o commit.
 - slider/carrossel com 3 imagens do equipamento
 - botões anterior/próxima, indicadores e miniaturas
 - autoplay leve e responsivo para celular e desktop
+
+
+## Nova atualização v6
+- seção do equipamento reorganizada com texto em cima e slider abaixo
+- removido o texto “Animação responsiva para desktop e celular.”
+- corrigida a animação do gráfico para disparar quando a seção entra na tela
