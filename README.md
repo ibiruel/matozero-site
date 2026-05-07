@@ -23,3 +23,9 @@ O Cloudflare publicará automaticamente após o commit.
 - comparativo: 4.000 m²/h
 - equivalência: 9 roçadeiras
 - menu atualizado com item Produtividade
+
+
+## Nova atualização v4
+- removidos os adesivos visuais aplicados sobre a máquina
+- galeria simplificada para apenas 3 imagens
+- removido o texto/caption abaixo da imagem da máquina
