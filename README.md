@@ -42,3 +42,9 @@ O Cloudflare publicará automaticamente após o commit.
 - seção do equipamento reorganizada com texto em cima e slider abaixo
 - removido o texto “Animação responsiva para desktop e celular.”
 - corrigida a animação do gráfico para disparar quando a seção entra na tela
+
+
+## Nova atualização v7
+- Google Analytics instalado no `index.html`
+- ID da tag: `G-LWX3BBF93Q`
+- Código inserido antes de `</head>`
